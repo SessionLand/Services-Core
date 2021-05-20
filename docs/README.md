@@ -1,3 +1,3 @@
 # Services Core
 
-:seedling: Account Lambda Service
+:seedling: Core Lambda Service
