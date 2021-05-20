@@ -1,3 +1,3 @@
-# Account-Lambda
+# Services Core
 
 :seedling: Account Lambda Service
