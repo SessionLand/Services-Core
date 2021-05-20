@@ -1,6 +1,6 @@
 /**
  * @author SessionLand
- * @namespace Common_Util
+ * @namespace Common_Error
  * @description Panic
  */
 
@@ -14,15 +14,18 @@ export enum ERROR_CODE {
     INVALID_TOKEN = 40300,
     INVALID_AUTHORIZATION_FIELD = 40301,
 
+    RETRIEVE_ACCOUNT_UNDEFINED = 40310,
+
     INVALID_PERMISSION = 43100,
 }
 
 export const ERROR_LIST: Record<ERROR_CODE, string> = {
 
-    [ERROR_CODE.PATTERN_DOES_NOT_MATCH_1]: 'Pattern does not match: {}',
-
+    [ERROR_CODE.PATTERN_DOES_NOT_MATCH_1]: 'Pattern Does Not Match: {}',
     [ERROR_CODE.INVALID_TOKEN]: 'Invalid Token',
     [ERROR_CODE.INVALID_AUTHORIZATION_FIELD]: 'Invalid Authorization field',
+
+    [ERROR_CODE.RETRIEVE_ACCOUNT_UNDEFINED]: 'Retrieve Account Undefined',
 
     [ERROR_CODE.INVALID_PERMISSION]: 'Invalid Permission',
 };
