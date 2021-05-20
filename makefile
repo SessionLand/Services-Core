@@ -35,13 +35,6 @@ remove:
 	AWS_SECRET_ACCESS_KEY=$(ASAK) \
 	serverless remove --region us-east-1
 
-create-init-account-develop:
-	@echo "[INFO] Creating Initial Account"
-	@NODE_ENV=development \
-	DEVELOPMENT_AWS_ACCESS_KEY_ID=$(ACKI) \
-	DEVELOPMENT_AWS_SECRET_ACCESS_KEY=$(ASAK) \
-	$(ts_node) script/create-initial-account.ts
-
 init-database-develop:
 	@echo "[INFO] Initiating Database"
 	@NODE_ENV=development \
