@@ -40,5 +40,22 @@
     "ts-loader": "^8.1.0",
     "webpack": "^4.46.0",
     "webpack-node-externals": "^2.5.2"
+  },
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "instrument": true,
+    "reporter": [
+      "json",
+      "text-summary"
+    ],
+    "report-dir": "coverage",
+    "sourceMap": true
   }
 }
