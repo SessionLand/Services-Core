@@ -13,7 +13,7 @@ export const AccountDynamoBuilder: DynamoBuilder = DynamoBuilder.create(AccountT
 export type AccountVerifyToken = {
 
     readonly value: string;
-    readonly expire: string;
+    readonly expireAt: string;
     readonly identifier: string;
 };
 
