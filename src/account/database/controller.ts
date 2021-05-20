@@ -8,7 +8,7 @@ import { DocumentManager } from "../../common/database/document-manager";
 import { ERROR_CODE, panic } from "../../common/error/panic";
 import { AccountEntity, AccountTableName } from "./entity";
 
-export const retrieveAccountEntity = async (email: string, token: string): Promise<AccountEntity> => {
+export const retrieveAccountEntity = async (email: string, verifyString: string): Promise<AccountEntity> => {
 
     const documentManager: DocumentManager = DocumentManager.instance;
 
@@ -20,19 +20,21 @@ export const retrieveAccountEntity = async (email: string, token: string): Promi
         },
     };
 
-    const getOutput: AWS.DynamoDB.DocumentClient.GetItemOutput = await documentManager.getItem(getParams);
+    const output: AWS.DynamoDB.DocumentClient.GetItemOutput = await documentManager.getItem(getParams);
 
-    if (!getOutput.Item) {
+    if (!output.Item) {
         throw panic.code(ERROR_CODE.RETRIEVE_ACCOUNT_UNDEFINED);
     }
 
-    const params: AWS.DynamoDB.DocumentClient.PutItemInput = {
+    const accountEntity: AccountEntity = output.Item as AccountEntity;
 
-        TableName: AccountTableName,
-        Item: {},
-    };
+    if (!accountEntity.verifyToken) {
+        throw panic.code(ERROR_CODE.RETRIEVE_ACCOUNT_UNDEFINED);
+    }
 
-    await documentManager.putData(params);
+    if (accountEntity.verifyToken.value !== verifyString) {
+        throw panic.code(ERROR_CODE.RETRIEVE_ACCOUNT_UNDEFINED);
+    }
 
-    return null as any;
+    return accountEntity;
 };
