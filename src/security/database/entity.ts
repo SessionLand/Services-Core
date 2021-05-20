@@ -1,7 +1,7 @@
 /**
  * @author SessionLand
  * @namespace Security_Database
- * @description Security
+ * @description Entity
  */
 
 import { DynamoBuilder } from "@sudoo/dynamo-builder";

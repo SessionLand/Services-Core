@@ -6,6 +6,8 @@
 
 import { JWTToken } from "@sudoo/jwt";
 import { ERROR_CODE, panic } from "../../common/util/panic";
+import { getOrCreateSecurityEntity } from "../../security/database/controller";
+import { accountAuthorizationSecurityName, SecurityEntity } from "../../security/database/entity";
 
 export type TokenHeader = {
 };
@@ -26,12 +28,12 @@ export const parseVerifyAuthToken = async (token: string): Promise<AuthToken> =>
         throw panic.code(ERROR_CODE.INVALID_TOKEN);
     }
 
-    // const security: SecurityEntity = await getOrCreateSecurityEntity(accountAuthorizationSecurityName);
+    const security: SecurityEntity = await getOrCreateSecurityEntity(accountAuthorizationSecurityName);
 
-    // const signed: boolean = instance.verifySignature(security.publicKey);
+    const signed: boolean = instance.verifySignature(security.publicKey);
 
-    // if (!signed) {
-    //     throw panic.code(ERROR_CODE.INVALID_TOKEN);
-    // }
-    return null as any;
+    if (!signed) {
+        throw panic.code(ERROR_CODE.INVALID_TOKEN);
+    }
+    return instance;
 };
