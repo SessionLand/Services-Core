@@ -1,15 +1,13 @@
 /**
  * @author SessionLand
- * @namespace Auth
+ * @namespace Auth_Token
  * @description Token
  */
-
 
 import { JWTToken } from "@sudoo/jwt";
 import { ERROR_CODE, panic } from "../../common/util/panic";
 
 export type TokenHeader = {
-
 };
 
 export type TokenBody = {

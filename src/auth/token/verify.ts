@@ -1,6 +1,6 @@
 /**
  * @author SessionLand
- * @namespace Auth
+ * @namespace Auth_Token
  * @description Verify
  */
 
