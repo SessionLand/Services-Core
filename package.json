@@ -1,0 +1,44 @@
+{
+  "name": "@session-land/services-core",
+  "private": true,
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SessionLand/Services-Core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SessionLand/Services-Core/issues"
+  },
+  "homepage": "https://github.com/SessionLand/Services-Core#readme",
+  "dependencies": {
+    "@sudoo/asynchronous": "^2.3.1",
+    "@sudoo/dynamo-builder": "^1.1.0",
+    "@sudoo/geometry": "^1.12.1",
+    "@sudoo/jwt": "^1.4.0",
+    "@sudoo/lambda": "^2.0.0",
+    "@sudoo/lambda-verify": "^1.0.0",
+    "@sudoo/magic": "^1.8.0",
+    "@sudoo/password": "^1.2.0",
+    "@sudoo/pattern": "^1.6.1",
+    "@sudoo/pattern-geometry": "^1.0.0",
+    "@sudoo/random": "^2.1.1",
+    "@sudoo/token": "^1.6.0",
+    "@sudoo/verify": "^1.16.0",
+    "aws-sdk": "^2.887.0",
+    "connor": "^2.7.0",
+    "source-map-support": "^0.5.19"
+  },
+  "devDependencies": {
+    "@sudoo/triforce": "^2.9.23",
+    "@types/aws-lambda": "^8.10.75",
+    "@types/source-map-support": "^0.5.3",
+    "@types/webpack-node-externals": "^2.5.1",
+    "serverless-offline": "^6.9.0",
+    "serverless-webpack": "^5.4.1",
+    "ts-loader": "^8.1.0",
+    "webpack": "^4.46.0",
+    "webpack-node-externals": "^2.5.2"
+  }
+}
