@@ -1,20 +1,20 @@
 /**
  * @author SessionLand
- * @namespace Auth_Database
+ * @namespace Account_Database
  * @description Initialize
  */
 
 import * as AWS from "aws-sdk";
 import { TableManager } from "../../common/database/table-manager";
-import { AuthTableName } from "./entity";
+import { AccountTableName } from "./entity";
 
-export const initializeAuthTable = async (): Promise<AWS.DynamoDB.CreateTableOutput> => {
+export const initializeAccountTable = async (): Promise<AWS.DynamoDB.CreateTableOutput> => {
 
     const tableManager: TableManager = TableManager.instance;
 
     const params: AWS.DynamoDB.CreateTableInput = {
 
-        TableName: AuthTableName,
+        TableName: AccountTableName,
         BillingMode: 'PAY_PER_REQUEST',
         KeySchema: [
             {
@@ -35,13 +35,13 @@ export const initializeAuthTable = async (): Promise<AWS.DynamoDB.CreateTableOut
     return output;
 };
 
-export const deleteAuthTable = async (): Promise<AWS.DynamoDB.CreateTableOutput> => {
+export const deleteAccountTable = async (): Promise<AWS.DynamoDB.CreateTableOutput> => {
 
     const tableManager: TableManager = TableManager.instance;
 
     const params: AWS.DynamoDB.DeleteTableInput = {
 
-        TableName: AuthTableName,
+        TableName: AccountTableName,
     };
 
     const output: AWS.DynamoDB.DeleteTableOutput = await tableManager.deleteTable(params);

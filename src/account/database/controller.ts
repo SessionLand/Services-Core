@@ -1,20 +1,20 @@
 /**
  * @author SessionLand
- * @namespace Auth_Database
+ * @namespace Account_Database
  * @description Controller
  */
 
 import { DocumentManager } from "../../common/database/document-manager";
 import { ERROR_CODE, panic } from "../../common/error/panic";
-import { AuthEntity, AuthTableName } from "./entity";
+import { AccountEntity, AccountTableName } from "./entity";
 
-export const retrieveAuthEntity = async (email: string, token: string): Promise<AuthEntity> => {
+export const retrieveAccountEntity = async (email: string, token: string): Promise<AccountEntity> => {
 
     const documentManager: DocumentManager = DocumentManager.instance;
 
     const getParams: AWS.DynamoDB.DocumentClient.GetItemInput = {
 
-        TableName: AuthTableName,
+        TableName: AccountTableName,
         Key: {
             email,
         },
@@ -28,7 +28,7 @@ export const retrieveAuthEntity = async (email: string, token: string): Promise<
 
     const params: AWS.DynamoDB.DocumentClient.PutItemInput = {
 
-        TableName: AuthTableName,
+        TableName: AccountTableName,
         Item: {},
     };
 

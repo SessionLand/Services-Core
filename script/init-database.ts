@@ -4,7 +4,7 @@
  * @description Init Database
  */
 
-import { initializeAuthTable } from "../src/auth/database/initialize";
+import { initializeAccountTable } from "../src/account/database/initialize";
 import { S1Config } from "../src/common/util/config";
 import { initializeSecurityTable } from "../src/security/database/initialize";
 
@@ -14,8 +14,8 @@ import { initializeSecurityTable } from "../src/security/database/initialize";
 
         await S1Config.update();
 
-        const createAuthTableOutput: AWS.DynamoDB.CreateTableOutput = await initializeAuthTable();
-        console.log(createAuthTableOutput);
+        const createAccountTableOutput: AWS.DynamoDB.CreateTableOutput = await initializeAccountTable();
+        console.log(createAccountTableOutput);
 
         const createSecurityTableOutput: AWS.DynamoDB.CreateTableOutput = await initializeSecurityTable();
         console.log(createSecurityTableOutput);
